@@ -88,45 +88,9 @@ Word embeddings and single integer representations differ primarily in two ways.
 	source bin/activate
 	pip3 install -r requirements.txt
 	deactivate
-	```
 
-5. Run the microservices:
 
-	1. Launch the English-to-French Translator Web Api by opening a **new terminal window** and running **the following commands**:
-
-		```bash
-		cd Translator-Webapi
-		virtualenv -p python3 .
-		source bin/activate
-		pip3 install -r requirements.txt
-		
-		export PORT=5001
-		python3 app.py --source-lang en --target-lang fr
-		```
-
-	2. Launch the French-to-English Translator Web Api by opening a **new terminal window** and running **the following commands**:
-
-		```bash
-		cd Translator-Webapi
-		source bin/activate
-		
-		export PORT=5002
-		python3 app.py --source-lang fr --target-lang en
-		```
-
-	3. Launch the Language-Detector Web Api by opening a **new terminal window** and running **the following commands**:
-
-		```bash
-		cd Language-Detector-Webapi
-		virtualenv -p python3 .
-		source bin/activate
-		pip3 install -r requirements.txt
-		
-		export PORT=5003
-		python3 app.py
-		```
-
-	4. Launch the Web App by opening a new terminal window and running the following commands:
+4. Launch the Web App by opening a new terminal window and running the following commands:
 
 		```bash
 		cd Webapp
