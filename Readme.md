@@ -2,7 +2,7 @@
 In this project we will aim to transform english sentences to french sentences using the concept of Machine Translation. The given dataset contains the english sentences and their french counterparts.  The data will be cleaned,processed and then tokenized, such that it is ready for machine consumption, by which I mean that it is ready to be feeded into the neural network. The neural network will output the converted sentences.
 
 
-
+The Project has been deployed on heroku ( https://en-fr-translator.herokuapp.com/ )
 
 ## Built With
 
@@ -44,6 +44,7 @@ Word embeddings and single integer representations differ primarily in two ways.
  
  ![ksdjbf](https://github.com/EKarton/English-French-Translator/blob/master/Webapp/docs/Homepage.png)
  
+ We have finally deployed it on heroku.
 
 ## Contributors
 
