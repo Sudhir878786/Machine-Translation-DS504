@@ -42,6 +42,7 @@ Word embeddings and single integer representations differ primarily in two ways.
   7) Testing the Model.
   To test the code, we will randomly choose a sentence from the input_sentences list, retrieve the corresponding padded sequence for the sentence, and will pass it to the translate_sentence() method. The method will return the translated sentence.
  
+ ![ksdjbf](https://github.com/EKarton/English-French-Translator/blob/master/Webapp/docs/Homepage.png)
  
 
 ## Contributors
