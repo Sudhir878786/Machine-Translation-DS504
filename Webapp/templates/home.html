@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Translate text</title>
+
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom stylesheet-->
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+
+<body>
+    <div id="header" class="jumbotron header">
+        <h1 class="display-5">Text Translation</h1>
+        <p>Translate text below using a Transformer model trained on the Hansard+Multi30k dataset!</p>
+    </div>
+    <div class="container">
+        <div class="row body-container">
+            <div class="col-sm translate-container">
+                <div>
+                    <label class="translate-label">Translate from:</label>
+
+                    <!-- Dropdown button -->
+                    <div id="source-lang-dropdown" class="btn-group dropdown" data-value="auto">
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Any language
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item active" href="#" data-value="auto">Any language</a>
+                            <a class="dropdown-item" href="#" data-value="en">English</a>
+                            <a class="dropdown-item" href="#" data-value="fr">French</a>
+                        </div>
+                    </div>
+                </div>
+                <textarea id="source-text-txtbox" class="translation-txtbox form-control" rows=9></textarea>
+            </div>
+            <div class="col-sm translate-container">
+                <div>
+                    <label class="translate-label">Translate to:</label>
+
+                    <!-- Dropdown button -->
+                    <div id="target-lang-dropdown" class="btn-group dropdown" data-value="fr">
+                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            French
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item active" href="#" data-value="fr">French</a>
+                            <a class="dropdown-item" href="#" data-value="en">English</a>
+                        </div>
+                    </div>
+                </div>
+                <textarea id="target-text-txtbox" class="translation-txtbox form-control" rows=9></textarea>
+            </div>
+        </div>
+
+        <div id="notes-container">
+            <div class="notes">
+                <h6>Some Examples:</h6>
+                <ul>
+                    <li>"You are being summoned for the purposes of Jury selection."</li>
+                    <li>"As a juror, if you do not attend on the required date of 4 June 2019, you will be liable to the
+                        penalties provided by the Juries act"</li>
+                    <li>"We propose a new simple network architecture, based solely on attention mechanisms"</li>
+                </ul>
+                <h6>Note:</h6>
+                <ul>
+                    <li>This was trained on a small 753,878 sentence pairs with 25,864 English and 34,058 French words
+                    </li>
+                    <li>
+                        It translates political sentences better than colloquial sentences because it was mostly trained
+                        on a government corpus
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body model-body-center">
+                    <img src="/static/Dual Ring-1s-64px.svg">
+                    <h4 class="modal-body-text">Loading</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Error</h5>
+                </div>
+                <div class="modal-body">
+                    There was an error with loading the web app. Please try again later.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="error-modal-reload-pg-button">Reload the page</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios scripts -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- My scripts -->
+    <script src="/static/services.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

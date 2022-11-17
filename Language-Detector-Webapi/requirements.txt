@@ -1,0 +1,15 @@
+click==7.1.2
+Flask==1.1.2
+future==0.18.2
+itsdangerous==1.1.0
+Jinja2==2.11.3
+joblib==0.14.1
+MarkupSafe==1.1.1
+nltk==3.5
+numpy==1.18.3
+Pillow==8.2.0
+regex==2020.4.4
+torch==1.5.0
+torchvision==0.6.0
+tqdm==4.45.0
+Werkzeug==1.0.1
