@@ -13,6 +13,7 @@ The Project has been deployed on heroku ( https://en-fr-translator.herokuapp.com
 ## Dataset
 
 [glove.6B.100d.txt](https://drive.google.com/file/d/1LQDz4v7RrLbL5nfIWyksOimt21yopjS_/view?usp=share_link)
+
 [fra.txt](https://drive.google.com/file/d/1-uAJm1yCrxQHKv_ChyoEgjeFrcTx840k/view)
 
 ## What We Have Done
