@@ -5,9 +5,10 @@ In this project we will aim to transform english sentences to french sentences u
 The Project has been deployed on heroku ( https://en-fr-translator.herokuapp.com/ )
 
 ## Built With
-
-- Python
-- PyTorch
+* [PyTorch](https://pytorch.org/) - The machine learning framework used
+* [Spacy](https://spacy.io/) - Used to do sentence and word tokenization in the translator
+* [Ntlk](https://www.nltk.org/) - Used to do word tokenization in the language detector
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The web framework used
 
 ## Dataset
 
@@ -45,6 +46,103 @@ Word embeddings and single integer representations differ primarily in two ways.
  ![ksdjbf](https://github.com/EKarton/English-French-Translator/blob/master/Webapp/docs/Homepage.png)
  
  We have finally deployed it on heroku.
+ 
+ 
+ ## Run it on Local Host
+ ### Installation:
+1. Clone this repository by **running the command**:
+	```bash
+	git clone https://github.com/EKarton/English-French-Translator.git
+	```
+
+2. Run the following commands in **the root project directory**:
+
+	```bash
+	cd Language-Detector
+	mkdir models
+	cd models
+	mkdir Hansard-Multi30k
+	mkdir Multi30k
+	cd ../../
+
+	cd Translator
+	mkdir models
+	cd models
+	mkdir Hansard-Multi30k
+	mkdir Multi30k
+	```
+
+
+
+3. Install the python packages for each project by **running the command**:
+
+	```bash
+	cd Translator-Webapi
+	virtualenv -p python3 .
+	source bin/activate
+	pip3 install -r requirements.txt
+	deactivate
+
+	cd Language-Detector-Webapi
+	virtualenv -p python3 .
+	source bin/activate
+	pip3 install -r requirements.txt
+	deactivate
+	```
+
+5. Run the microservices:
+
+	1. Launch the English-to-French Translator Web Api by opening a **new terminal window** and running **the following commands**:
+
+		```bash
+		cd Translator-Webapi
+		virtualenv -p python3 .
+		source bin/activate
+		pip3 install -r requirements.txt
+		
+		export PORT=5001
+		python3 app.py --source-lang en --target-lang fr
+		```
+
+	2. Launch the French-to-English Translator Web Api by opening a **new terminal window** and running **the following commands**:
+
+		```bash
+		cd Translator-Webapi
+		source bin/activate
+		
+		export PORT=5002
+		python3 app.py --source-lang fr --target-lang en
+		```
+
+	3. Launch the Language-Detector Web Api by opening a **new terminal window** and running **the following commands**:
+
+		```bash
+		cd Language-Detector-Webapi
+		virtualenv -p python3 .
+		source bin/activate
+		pip3 install -r requirements.txt
+		
+		export PORT=5003
+		python3 app.py
+		```
+
+	4. Launch the Web App by opening a new terminal window and running the following commands:
+
+		```bash
+		cd Webapp
+		virtualenv -p python3 .
+		source bin/activate
+		pip3 install -r requirements.txt
+		
+		export PORT=5000
+		export EN_FR_TRANSLATOR_ENDPOINT=http://en-fr-translator:5001
+    	export FR_EN_TRANSLATOR_ENDPOINT=http://fr-en-translator:5002
+    	export LANGUAGE_DETECTOR_ENDPOINT=http://language-detector:5003
+		python3 app.py
+		```
+
+
+
 
 ## Contributors
 
