@@ -1,6 +1,7 @@
 from flask import Flask, escape, request, render_template
 import requests
 import aiohttp, asyncio
+import ../Machine_Translation.ipynb
 
 from aiohttp import ClientSession
 
